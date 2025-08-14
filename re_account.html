@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Tài Khoản - ShoeMart</title>
+    <link rel="stylesheet" href="Shoes.css">
+    <link rel="stylesheet" href="re_account.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">ShoeMart</div>
+            <ul class="nav-links">
+                <li><a href="Shoes.html#home">Trang chủ</a></li>
+                <li><a href="Shoes.html#products">Sản phẩm</a></li>
+                <li><a href="Shoes.html#about">Giới thiệu</a></li>
+                <li><a href="Shoes.html#contact">Liên hệ</a></li>
+                <li><a href="account.html" class="active">Tài Khoản</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="account-container">
+            <h1 class="account-title">Thông Tin Tài Khoản</h1>
+
+            <div class="account-info">
+                </div>
+
+            <div class="password-change-section">
+                <h2>Thay Đổi Mật Khẩu</h2>
+                <form id="passwordChangeForm">
+                    <div class="form-group" id="username-group" style="display: none;">
+                        <label for="resetUsername">Tên đăng nhập:</label>
+                        <input type="text" id="resetUsername">
+                    </div>
+
+                    <div class="form-group" id="current-password-group">
+                        <label for="currentPassword">Mật khẩu hiện tại:</label>
+                        <input type="password" id="currentPassword" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newPassword">Mật khẩu mới:</label>
+                        <input type="password" id="newPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Xác nhận mật khẩu mới:</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                    <button type="submit" class="cta-button">Cập Nhật Mật Khẩu</button>
+                </form>
+                <p id="message" class="message"></p>
+            </div>
+             <div class="back-link">
+                <a href="Shoes.html">← Quay lại trang chủ</a>
+            </div>
+        </div>
+    </main>
+
+     <footer class="simple-footer">
+        <p>&copy; 2025 ShoeMart. Bảo lưu mọi quyền.</p>
+    </footer>
+
+    <script src="re_account.js"></script>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoeMart - Cửa Hàng Giày Thời Trang</title>
+    <link rel="stylesheet" href="Shoes.css">
+</head>
+<body>
+    <div class="floating-element floating-shoe1">👟</div>
+    <div class="floating-element floating-shoe2">👠</div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">ShoeMart</div>
+            <ul class="nav-links">
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#products">Sản phẩm</a></li>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li class="nav-contact"><a href="#contact">Liên hệ</a></li>
+                <li><a href="account.html">Đăng nhập/Đăng ký</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="#" id="wishlistLink" class="wishlist-icon" title="Sản phẩm yêu thích" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </a>
+                <a href="#" id="adminLink" class="admin-icon" title="Trang quản trị">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"></path>
+                        <path d="M20 12c-2.3 2.3-4.9 4-8 4s-5.7-1.7-8-4"></path>
+                    </svg>
+                </a>
+                
+                <a href="#" id="customerLink" class="customer-icon" title="Trang cá nhân">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                       <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+
+                <div class="cart-icon" onclick="toggleCart()">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <h1>Bước Đi Thời Trang</h1>
+                <p>Khám phá bộ sưu tập giày độc đáo với thiết kế hiện đại và chất lượng cao</p>
+                <a href="#products" class="cta-button">Khám Phá Ngay</a>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+             <div class="container">
+                <h2 class="section-title">Giới Thiệu</h2>
+                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;">
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                        <strong>ShoeMart</strong> là thương hiệu giày hàng đầu Việt Nam với hơn 10 năm kinh nghiệm trong ngành thời trang.
+                        Chúng tôi cam kết mang đến những sản phẩm chất lượng cao với thiết kế thời trang và giá cả hợp lý.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                        <div style="padding: 1rem;"><div style="font-size: 2rem; margin-bottom: 0.5rem;">🏆</div><h4>Chất lượng cao</h4><p>Sản phẩm được chọn lọc kỹ càng</p></div>
+                        <div style="padding: 1rem;"><div style="font-size: 2rem; margin-bottom: 0.5rem;">🚚</div><h4>Giao hàng nhanh</h4><p>Miễn phí ship toàn quốc</p></div>
+                        <div style="padding: 1rem;"><div style="font-size: 2rem; margin-bottom: 0.5rem;">💯</div><h4>Bảo hành</h4><p>6 tháng bảo hành chính hãng</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products" id="products">
+            <div class="container products-container">
+                 <aside class="filter-sidebar" id="filterSidebar">
+                    <h3>Bộ Lọc Sản Phẩm</h3>
+                    
+                    <div class="filter-group">
+                        <h4>Phân Loại</h4>
+                        <div id="categoryFilter"></div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <h4>Giới Tính</h4>
+                        <div id="genderFilter"></div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Mức Giá</h4>
+                        <div id="priceFilter"></div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Size</h4>
+                        <div id="sizeFilter" class="size-filter-grid"></div>
+                    </div>
+                    <button id="resetFilters" class="reset-button">Xóa Tất Cả Bộ Lọc</button>
+                </aside>
+
+                <div class="products-main">
+                    <div class="products-header">
+                        <h2 class="section-title">Sản Phẩm Của Chúng Tôi</h2>
+                        <div class="controls-wrapper">
+                            <div class="sort-container">
+                                <label for="sortOptions">Sắp xếp:</label>
+                                <select id="sortOptions" name="sortOptions">
+                                    <option value="default">Mặc định</option>
+                                    <option value="price-asc">Giá tăng dần</option>
+                                    <option value="price-desc">Giá giảm dần</option>
+                                    <option value="name-asc">Tên A → Z</option>
+                                    <option value="name-desc">Tên Z → A</option>
+                                    <option value="newest">Hàng mới</option>
+                                </select>
+                            </div>
+                            <div class="search-container">
+                                <input type="search" id="searchInput" placeholder="Tìm kiếm tên sản phẩm...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-grid" id="productGrid">
+                    </div>
+                    <div class="pagination-container" id="paginationContainer">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">Liên Hệ</h2>
+                <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                        <div>
+                            <h3 style="color: #667eea; margin-bottom: 1rem;">Thông Tin Liên Hệ</h3>
+                            <p><strong>📍 Địa chỉ:</strong><br>Cầu Giấy, Hà Nội</p>
+                            <p><strong>📞 Hotline:</strong><br>0866555468 (24/7)</p>
+                            <p><strong>✉️ Email:</strong><br>anh249205@gmail.com</p>
+                            <p><strong>🕒 Giờ mở cửa:</strong><br>8:00 - 22:00 (Thứ 2 - Chủ nhật)</p>
+                        </div>
+                        <div>
+                            <h3 style="color: #667eea; margin-bottom: 1rem;">Gửi Tin Nhắn</h3>
+                            <form id="contactForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                                <input type="text" id="contact-name" placeholder="Họ và tên" required style="padding: 0.8rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                <input type="email" id="contact-email" placeholder="Email" required style="padding: 0.8rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                                <textarea id="contact-message" placeholder="Nội dung tin nhắn" rows="4" style="padding: 0.8rem; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; resize: vertical;"></textarea>
+                                <button type="submit" class="buy-button" style="background: linear-gradient(45deg, #667eea, #764ba2);">Gửi Tin Nhắn</button>
+                            </form>
+                            <p id="form-message" style="text-align: center; margin-top: 1rem; font-weight: bold;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="admin" id="admin" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">Trang Quản Trị</h2>
+                <div id="admin-stats" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                    <h3 style="text-align: left; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 1rem;">Thống Kê Tổng Quan</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                        <div style="padding: 1rem; background: #f9f9f9; border-radius: 10px;">
+                            <h4>Tổng Doanh Thu</h4>
+                            <p id="totalRevenue" style="font-size: 2rem; font-weight: bold; color: #667eea;">0 VND</p>
+                        </div>
+                        <div style="padding: 1rem; background: #f9f9f9; border-radius: 10px;">
+                            <h4>Tổng Đơn Hàng</h4>
+                            <p id="totalOrders" style="font-size: 2rem; font-weight: bold; color: #667eea;">0</p>
+                        </div>
+                        <div style="padding: 1rem; background: #f9f9f9; border-radius: 10px;">
+                            <h4>Tổng Hàng Tồn Kho</h4>
+                            <p id="totalStock" style="font-size: 2rem; font-weight: bold; color: #667eea;">0</p>
+                        </div>
+                    </div>
+                    <h4 style="margin-top: 2rem; text-align: left;">Chi tiết đơn hàng đã bán</h4>
+                    <div id="orderDetailsContainer" style="margin-top: 1rem; text-align: left;">
+                        <p>Chưa có đơn hàng nào.</p>
+                    </div>
+                </div>
+                <div id="user-management" style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                     <h3 style="text-align: left; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 1rem;">Quản Lý Tài Khoản</h3>
+                     <div id="userListContainer" style="margin-top: 1rem; text-align: left; max-height: 400px; overflow-y: auto;">
+                        <p>Đang tải danh sách người dùng...</p>
+                     </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="customer-dashboard" id="customerDashboard" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">Thông Tin Cá Nhân</h2>
+                <div class="customer-stats">
+                    <div class="stat-card">
+                        <h3>Tổng Chi Tiêu</h3>
+                        <p id="customerTotalSpending">0 VND</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Tổng Sản Phẩm Đã Mua</h3>
+                        <p id="customerTotalItems">0</p>
+                    </div>
+                </div>
+                <div class="customer-history">
+                    <h3>Lịch Sử Mua Hàng</h3>
+                    <div id="customerOrderHistoryContainer">
+                        <p>Bạn chưa có đơn hàng nào.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h3>Về ShoeMart</h3><a href="#">Giới thiệu</a><a href="#">Tầm nhìn & sứ mệnh</a><a href="#">Liên hệ</a><a href="#">Tuyển dụng</a></div>
+                <div class="footer-section"><h3>Chính Sách</h3><a href="#">Chính sách bảo mật</a><a href="#">Điều khoản sử dụng</a><a href="#">Chính sách đổi trả</a><a href="#">Hướng dẫn mua hàng</a></div>
+                <div class="footer-section"><h3>Liên Hệ</h3><a href="tel:0866555468">📞 0866555468</a><a href="mailto:anh249205@gmail.com">✉️ anh249205@gmail.com</a><a href="#">📍 Cầu Giấy, Hà Nội</a></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 ShoeMart. Bảo lưu mọi quyền.</p></div>
+        </div>
+    </footer>
+
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Giỏ Hàng</h3>
+            <button onclick="toggleCart()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">✕</button>
+        </div>
+        <div class="cart-content" id="cartContent">
+            <p style="text-align: center; color: #999; margin: 2rem 0;">Giỏ hàng trống</p>
+        </div>
+        <div class="cart-footer">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <strong>Tổng cộng:</strong><strong id="cartTotal">0 VND</strong>
+            </div>
+            <button onclick="checkout()" class="buy-button" style="width: 100%;">Thanh Toán</button>
+        </div>
+    </div>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-notification" id="modalNotification"></div>
+            <span class="close" onclick="closeProductDetail()">&times;</span>
+            <div class="modal-image"><div id="modalProductIcon" class="modal-image-icon">👟</div></div>
+            <div class="modal-details">
+                <h2 id="modalProductName" style="margin-bottom: 0.5rem; color: #333;">Tên Sản Phẩm</h2>
+                <p id="modalProductPrice" style="font-size: 1.8rem; font-weight: bold; color: #667eea; margin-bottom: 1rem;">Giá</p>
+                <p id="modalProductDescription" style="margin-bottom: 1.5rem; color: #555; line-height: 1.7;">Mô tả chi tiết sản phẩm.</p>
+                <div style="margin-bottom: 1.5rem; font-size: 0.9rem;">
+                    <p><strong>Chất liệu:</strong> <span id="modalProductMaterial"></span></p>
+                    <p><strong>Xuất xứ:</strong> <span id="modalProductOrigin"></span></p>
+                </div>
+                <div class="form-group"><label for="modalProductSize">Chọn Size:</label><select id="modalProductSize"></select></div>
+                <div class="form-group"><label for="modalProductQuantity">Số lượng:</label><input id="modalProductQuantity" type="number" value="1" min="1" max="10"></div>
+                <div class="modal-actions">
+                    <button id="addToCartBtn" class="btn btn-add-to-cart">Thêm vào Giỏ</button>
+                    <button id="orderNowBtn" class="btn btn-order-now">Đặt Hàng Ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content" style="max-width: 850px; grid-template-columns: 1fr;">
+            <span class="close" onclick="document.getElementById('orderModal').classList.remove('active')">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 1.5rem;">Thông Tin Đặt Hàng</h2>
+            <form id="orderForm" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+    
+                <div class="form-column">
+                    <div class="form-group">
+                        <label for="customerName">Họ và tên:</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone">Số điện thoại:</label>
+                        <input type="tel" id="customerPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerAddress">Địa chỉ nhận hàng:</label>
+                        <input type="text" id="customerAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="couponCode">Mã giảm giá (tùy chọn):</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="couponCodeInput" placeholder="Nhập mã giảm giá">
+                            <button type="button" id="applyCouponBtn" class="buy-button" style="width: auto; padding: 0 1rem; flex-shrink: 0;">Áp dụng</button>
+                        </div>
+                        <p id="couponMessage" style="margin-top: 5px; font-size: 0.9rem;"></p>
+                    </div>
+            
+                    <div id="orderSummary" class="order-summary">
+                        <p><span>Tạm tính:</span> <span id="summarySubtotal">0 đ</span></p>
+                        <p><span>Giảm giá:</span> <span id="summaryDiscount">0 đ</span></p>
+                        <p class="summary-total"><span>Tổng cộng:</span> <strong id="summaryTotal">0 đ</strong></p>
+                    </div>
+                </div>
+            
+                <div class="form-column">
+                    <div class="form-group">
+                        <label>Phương thức thanh toán:</label>
+                        <div class="payment-options" style="display:flex; flex-direction:column; gap: 1rem; margin-top: 0.5rem;">
+                            <label style="display:flex; align-items:center; gap: 0.5rem; cursor:pointer;">
+                                <input type="radio" name="paymentMethod" value="cash" checked style="width: 18px; height: 18px; accent-color: #667eea;">
+                                <span>💵 Thanh toán khi nhận hàng (Tiền mặt)</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap: 0.5rem; cursor:pointer;">
+                                <input type="radio" name="paymentMethod" value="qr" style="width: 18px; height: 18px; accent-color: #667eea;">
+                                <span>📱 Chuyển khoản (Quét mã QR)</span>
+                            </label>
+                        </div>
+                    </div>
+            
+                    <div id="qrCodeContainer" style="display: none; text-align: center; margin-bottom: 1rem; background: #f9f9f9; padding: 15px; border-radius: 8px;">
+                        <p>Vui lòng quét mã QR để thanh toán.</p>
+                        <img id="qrCodeImage" src="https://api.vietqr.io/image/970436-1034671262-compact.png?accountName=NGUYEN%20DINH%20TUAN%20ANH" alt="Mã QR thanh toán" style="max-width: 180px; border: 1px solid #ddd; padding: 5px; border-radius: 8px;">
+                        <p id="qrAmountText" style="font-weight: bold; color: #d93025; margin-top: 5px;"></p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerNotes">Ghi chú (tùy chọn):</label>
+                        <textarea id="customerNotes" rows="4"></textarea>
+                    </div>
+                </div>
+                
+                <button type="submit" class="buy-button" style="width: 100%; margin-top: 1rem; grid-column: 1 / -1;">Xác Nhận Đặt Hàng</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="successModal" class="success-modal">
+        <div class="success-modal-content">
+            <div class="success-icon-wrapper">
+                <div class="success-icon">
+                    <div class="checkmark"></div>
+                </div>
+            </div>
+            <h2>Đặt Hàng Thành Công!</h2>
+            <p>Cảm ơn bạn đã mua sắm. Đơn hàng của bạn đang được xử lý.</p>
+            <button class="btn-confirm" onclick="closeSuccessModal()">Đã hiểu</button>
+        </div>
+    </div>
+
+    <div id="notification-modal" class="notification-modal">
+        <div class="notification-modal-content">
+            <button id="modal-close" class="modal-close-btn">&times;</button>
+            <div id="modal-icon" class="modal-icon"></div>
+            <h2 id="modal-title">Tiêu đề thông báo</h2>
+            <p id="modal-message">Nội dung thông báo chi tiết.</p>
+            <button id="modal-ok" class="modal-ok-btn">Đã hiểu</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="Shoes.js"></script>
+</body>
+</html>

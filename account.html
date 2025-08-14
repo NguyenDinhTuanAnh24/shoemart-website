@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài Khoản - ShoeMart</title>
+    <link rel="stylesheet" href="account.style.css">
+</head>
+<body>
+    <div id="notification-modal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-icon" id="modal-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3 id="modal-title">Thông báo</h3>
+                <p id="modal-message">Nội dung thông báo</p>
+            </div>
+            <div class="modal-footer">
+                <button id="modal-ok" class="modal-btn modal-btn-primary">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="login-form" class="form-container active">
+            <form id="login">
+                <h1>Đăng Nhập</h1>
+                <p>Chào mừng trở lại với ShoeMart!</p>
+                <div class="form-group">
+                    <label for="login-username">Tên đăng nhập</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mật khẩu</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="form-options">
+                    <label for="remember-me">
+                        <input type="checkbox" id="remember-me">
+                        Ghi nhớ đăng nhập
+                    </label>
+                    <a href="re_account.html?reset=true" class="forgot-password-link">Quên mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn">Đăng Nhập</button>
+                <p class="switch-form">
+                    Chưa có tài khoản? <a href="#" id="show-signup">Đăng ký ngay</a>
+                </p>
+            </form>
+        </div>
+
+        <div id="signup-form" class="form-container">
+            <form id="signup">
+                <h1>Tạo Tài Khoản Mới</h1>
+                <p>Điền thông tin để tham gia cộng đồng ShoeMart.</p>
+                <div class="form-group">
+                    <label for="signup-username">Tên đăng nhập</label>
+                    <input type="text" id="signup-username" required>
+                </div>
+                 <div class="form-group">
+                    <label for="signup-phone">Số điện thoại</label>
+                    <input type="tel" id="signup-phone" required>
+                </div>
+                 <div class="form-group">
+                    <label for="signup-address">Địa chỉ</label>
+                    <input type="text" id="signup-address" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Mật khẩu</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-confirm-password">Nhập lại mật khẩu</label>
+                    <input type="password" id="signup-confirm-password" required>
+                </div>
+                <button type="submit" class="btn">Đăng Ký</button>
+                <p class="switch-form">
+                    Đã có tài khoản? <a href="#" id="show-login">Đăng nhập ngay</a>
+                </p>
+                 <a href="Shoes.html" class="back-to-home">← Quay về trang chủ</a>
+            </form>
+        </div>
+    </div>
+    <script src="account.script.js"></script>
+</body>
+</html>
