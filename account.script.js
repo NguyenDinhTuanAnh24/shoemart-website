@@ -267,7 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `Chào mừng ${username} quay trở lại với ShoeMart!`,
             'success',
             () => {
-                // SỬA LỖI Ở ĐÂY: Chuyển hướng đến index.html thay vì Shoes.html
                 window.location.href = 'index.html';
             }
         );

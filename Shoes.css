@@ -1,10 +1,4 @@
 /* --- Reset & Base Styles --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
@@ -390,17 +384,16 @@ nav {
 
 .filter-sidebar {
     position: fixed;
-    top: 100px;
+    top: 90px;
+    left: 20rem;
     width: 250px;
-    height: calc(100vh - 120px);
-    overflow-y: auto;
     background: #fff;
     padding: 1.5rem;
     border-radius: 15px;
 }
 
 .products-main {
-    margin-left: 282px; /* 250px (width) + 32px (gap) */
+    margin-left: 314px; /* Cập nhật lại giá trị này (32px + 250px + 32px) */
 }
 
 .products-main .section-title {
@@ -485,6 +478,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
+    min-height: 1300px;
 }
 
 .product-card {
@@ -505,7 +499,7 @@ nav {
 
 .product-image {
     width: 100%;
-    height: 250px;
+    height: 200px;
     background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
     display: flex;
     align-items: center;
@@ -521,7 +515,7 @@ nav {
 }
 
 .product-info {
-    padding: 1.5rem;
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;

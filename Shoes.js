@@ -163,7 +163,8 @@ document.addEventListener('DOMContentLoaded', function () {
             showOnlyFavorites = false;
             sessionStorage.removeItem('loggedInUser'); 
             localStorage.removeItem('rememberedUser'); 
-            window.location.href = 'Shoes.html'; 
+            // SỬA LỖI Ở ĐÂY: Chuyển hướng đến index.html
+            window.location.href = 'index.html'; 
         };
 
         if (currentUser.role === 'admin') { 
