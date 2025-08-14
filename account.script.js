@@ -267,9 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
             `Chào mừng ${username} quay trở lại với ShoeMart!`,
             'success',
             () => {
-                // Redirect both admin and customer to the main store page.
-                // The logic in Shoes.js will handle showing/hiding the admin panel.
-                window.location.href = 'Shoes.html';
+                // SỬA LỖI Ở ĐÂY: Chuyển hướng đến index.html thay vì Shoes.html
+                window.location.href = 'index.html';
             }
         );
     });

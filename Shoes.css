@@ -383,29 +383,25 @@ nav {
     border-radius: 2px;
 }
 
-/* --- SỬA LỖI CUỘN TRANG --- */
+/* --- Products Page Layout & Filter Sidebar --- */
 .products-container {
     position: relative;
 }
 
 .filter-sidebar {
-    position: fixed; /* Thay từ sticky -> fixed để đảm bảo luôn cố định */
-    top: 100px; /* Khoảng cách với header */
-    width: 250px; /* Đặt chiều rộng cụ thể */
-    height: calc(100vh - 120px); /* Chiều cao tự động để không che footer */
-    overflow-y: auto; /* Thêm thanh cuộn cho riêng sidebar nếu nội dung quá dài */
-
-    /* Giữ các style cũ */
+    position: fixed;
+    top: 100px;
+    width: 250px;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
     background: #fff;
     padding: 1.5rem;
     border-radius: 15px;
 }
 
 .products-main {
-    margin-left: 282px; /* = chiều rộng sidebar (250px) + khoảng cách (32px) */
+    margin-left: 282px; /* 250px (width) + 32px (gap) */
 }
-/* --- KẾT THÚC SỬA LỖI --- */
-
 
 .products-main .section-title {
     margin-bottom: 2rem;
@@ -762,22 +758,86 @@ footer {
     to { transform: rotate(45deg) scale(1); }
 }
 
+/* --- Product Header & Sort & Search Styling --- */
+.products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap; 
+    gap: 1.5rem;
+}
+
+.products-header .section-title {
+    margin-bottom: 0; 
+    flex-shrink: 0;
+}
+
+.controls-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.search-container {
+    min-width: 250px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.sort-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sort-container label {
+    font-weight: 500;
+    color: #555;
+}
+
+.sort-container select {
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    background-color: #fff;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
 
 /* --- Responsive --- */
 @media (max-width: 992px) {
-    /* Khi màn hình nhỏ, chuyển sidebar lên trên cùng và nội dung xuống dưới */
     .filter-sidebar {
-        position: static; /* Bỏ cố định */
+        position: static;
         width: 100%;
         height: auto;
         margin-bottom: 2rem;
     }
     .products-main {
-        margin-left: 0; /* Reset margin */
+        margin-left: 0;
     }
     .products-header {
         flex-direction: column;
         align-items: stretch;
+    }
+    .controls-wrapper {
+        justify-content: space-between;
+        width: 100%;
     }
 }
 @media (max-width: 768px) {
@@ -1197,66 +1257,4 @@ footer {
 }
 .pagination-btn.ellipsis:hover {
     background-color: transparent;
-}
-/* --- Product Header & Sort & Search Styling --- */
-.products-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    flex-wrap: wrap; 
-    gap: 1.5rem;
-}
-
-.products-header .section-title {
-    margin-bottom: 0; 
-    flex-shrink: 0; /* Prevent title from shrinking */
-}
-
-.search-container {
-    flex-grow: 1; /* Allow search bar to take up available space */
-    min-width: 250px; /* Minimum width for the search bar */
-}
-
-.search-container input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.search-container input:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-.sort-container {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.sort-container label {
-    font-weight: 500;
-    color: #555;
-}
-
-.sort-container select {
-    padding: 0.75rem;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-    background-color: #fff;
-    font-size: 0.95rem;
-    cursor: pointer;
-}
-/* Thêm đoạn mã này vào cuối file Shoes.css */
-
-.controls-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10rem;
-    flex-grow: 1;
-    justify-content: flex-end;
 }
